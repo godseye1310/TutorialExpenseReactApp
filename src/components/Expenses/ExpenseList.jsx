@@ -5,11 +5,11 @@ import ExpenseItem from "./ExpenseItem";
 function ExpenseList(props) {
 	//Conditional Return Statement Rendering
 	if (props.itemsDisplayed.length === 0) {
-		return <h2 className="expenses-list__fallback">No expenses found</h2>;
+		return <h2 className="expenses-list__fallback">No expenses found. Add Expense</h2>;
 	}
 	//Rendering the Expense List for the Selected Year USING MAP fn//
 	return (
-		<ul className="expense-list">
+		<ul className="expenses-list">
 			{props.itemsDisplayed.map((expenseItemData) => {
 				return (
 					<ExpenseItem

@@ -36,12 +36,16 @@ function Expenses(props) {
 
 	//Render React Elements//
 	return (
-		<Card className="expenses">
-			<ExpensesFilter selected={filteredYear} onChangeFilter={changeFilterHandler} />
-			{/* {expenseContent} */}
-			<ExpenseList itemsDisplayed={filteredExpenses} />
-			{filteredExpenses.length === 1 && <h3 className="one-item-fallback">Only one expense here. Want to add more</h3>}
-		</Card>
+		<li>
+			<Card className="expenses">
+				<ExpensesFilter selected={filteredYear} onChangeFilter={changeFilterHandler} />
+				{/* {expenseContent} */}
+				<ExpenseList itemsDisplayed={filteredExpenses} />
+				{filteredExpenses.length === 1 && (
+					<h3 className="one-item-fallback">Only one expense here. Want to add more</h3>
+				)}
+			</Card>
+		</li>
 	);
 }
 
