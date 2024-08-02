@@ -48,30 +48,33 @@ const ExpenseForm = (props) => {
 		setEnteredTitle("");
 		setEnteredAmount("");
 		setEnteredDate("");
+
+		setRenderForm(false);
+		document.getElementById("expense-btn").style.display = "inline-block";
 	};
 
-	return (
+	//CODE for Conditional Rendering of FORM Display//
+	const [renderForm, setRenderForm] = useState(false);
+	const formDisplayHandler = () => {
+		document.getElementById("expense-btn").style.display = "none";
+		setRenderForm(true);
+	};
+	const formDisplayCancler = () => {
+		setRenderForm(false);
+		document.getElementById("expense-btn").style.display = "inline-block";
+	};
+
+	//Storing my FORM HTML in a variable//
+	let myform = (
 		<form onSubmit={formSubmitHandler}>
 			<div className="new-expense__controls">
 				<div className="new-expense__control">
 					<label htmlFor="title">Title</label>
-					<input
-						type="text"
-						value={enteredTitle}
-						id="title"
-						onChange={titleChangeHandler}
-						required
-					/>
+					<input type="text" value={enteredTitle} id="title" onChange={titleChangeHandler} required />
 				</div>
 				<div className="new-expense__control">
 					<label htmlFor="amount">Amount</label>
-					<input
-						type="number"
-						value={enteredAmount}
-						id="amount"
-						onChange={amountChangeHandler}
-						required
-					/>
+					<input type="number" value={enteredAmount} id="amount" onChange={amountChangeHandler} required />
 				</div>
 				<div className="new-expense__control">
 					<label htmlFor="date">Date</label>
@@ -87,9 +90,21 @@ const ExpenseForm = (props) => {
 				</div>
 			</div>
 			<div className="new-expense__actions">
+				<button type="button" onClick={formDisplayCancler}>
+					Cancel
+				</button>
 				<button type="submit">Add Expense</button>
 			</div>
 		</form>
+	);
+	//Render React Elements (myform)//
+	return (
+		<>
+			<button id="expense-btn" type="button" onClick={formDisplayHandler}>
+				Add Expense
+			</button>
+			{renderForm && myform}
+		</>
 	);
 };
 
