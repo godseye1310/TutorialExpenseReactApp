@@ -1,46 +1,46 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
+// import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpenseList from "./ExpenseList";
 import "./Expenses.css";
 import Card from "../Wrapper/Card";
 
 function Expenses(props) {
-	// console.log(props.myExpense);
+	// Changing the state for Selected Year//
 	const [filteredYear, setFilteredYear] = useState("2023");
-
 	const changeFilterHandler = (selectedYear) => {
 		setFilteredYear(selectedYear);
 	};
 
+	//Filtering the Expense List according to the Selected Year//
 	const filteredExpenses = props.myExpense.filter((expense) => {
 		return expense.date.getFullYear().toString() === filteredYear;
 	});
 
-	let expenseContent = <p>No expense found</p>;
-	let oneexpenseContent = <p>Only one expense here. Please add more</p>;
+	// let expenseContent = <p>No expense found</p>;
 
-	if (filteredExpenses.length > 0) {
-		expenseContent = filteredExpenses.map((expenseData) => {
-			return (
-				<ExpenseItem
-					key={expenseData.id}
-					date={expenseData.date}
-					title={expenseData.title}
-					price={expenseData.price}
-					location={expenseData.location}
-				/>
-			);
-		});
-	}
+	//Displaying the Expense List for the Selected Year USING MAP fn//
+	// if (filteredExpenses.length > 0) {
+	// 	expenseContent = filteredExpenses.map((expenseData) => {
+	// 		return (
+	// 			<ExpenseItem
+	// 				key={expenseData.id}
+	// 				date={expenseData.date}
+	// 				title={expenseData.title}
+	// 				price={expenseData.price}
+	// 				location={expenseData.location}
+	// 			/>
+	// 		);
+	// 	});
+	// }
 
+	//Render React Elements//
 	return (
 		<Card className="expenses">
-			<ExpensesFilter
-				selected={filteredYear}
-				onChangeFilter={changeFilterHandler}
-			/>
-			{expenseContent}
-			{filteredExpenses.length === 1 && oneexpenseContent}
+			<ExpensesFilter selected={filteredYear} onChangeFilter={changeFilterHandler} />
+			{/* {expenseContent} */}
+			<ExpenseList itemsDisplayed={filteredExpenses} />
+			{filteredExpenses.length === 1 && <h3 className="one-item-fallback">Only one expense here. Want to add more</h3>}
 		</Card>
 	);
 }

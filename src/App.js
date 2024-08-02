@@ -35,19 +35,22 @@ function App() {
 		},
 	];
 
+	//Adding the New Expense to the expense list so that it can also be rendered
 	const [expenses, setExpenses] = useState(defaultExpenses);
-
 	const receiveNewExpenseDataHandler = (receivedNewExpense) => {
 		console.log(receivedNewExpense);
 		setExpenses((prevExpense) => {
 			return [receivedNewExpense, ...prevExpense];
 		});
 	};
+	////////////////////////////////////////////////////////////////////////////////
 
 	return (
 		<div className="App">
 			{/* <h1>Let's get Started</h1>
 			<p>I am learning React</p> */}
+
+			{/* Receiving expense data from expense form */}
 			<NewExpense onAppExpenseData={receiveNewExpenseDataHandler} />
 			<Expenses myExpense={expenses} />
 		</div>
