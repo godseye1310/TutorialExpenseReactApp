@@ -4,6 +4,7 @@ import ExpensesFilter from "./ExpensesFilter";
 import ExpenseList from "./ExpenseList";
 import "./Expenses.css";
 import Card from "../Wrapper/Card";
+import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
 	// Changing the state for Selected Year//
@@ -34,11 +35,14 @@ function Expenses(props) {
 	// 	});
 	// }
 
-	//Render React Elements//
+	//Render All React Elements//
 	return (
 		<li>
 			<Card className="expenses">
 				<ExpensesFilter selected={filteredYear} onChangeFilter={changeFilterHandler} />
+
+				<ExpensesChart filteredExpensesForChart={filteredExpenses} />
+
 				{/* {expenseContent} */}
 				<ExpenseList itemsDisplayed={filteredExpenses} />
 				{filteredExpenses.length === 1 && (
