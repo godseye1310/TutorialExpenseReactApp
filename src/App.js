@@ -38,7 +38,7 @@ function App() {
 	//Adding the New Expense to the expense list so that it can also be rendered
 	const [expenses, setExpenses] = useState(defaultExpenses);
 	const receiveNewExpenseDataHandler = (receivedNewExpense) => {
-		console.log(receivedNewExpense);
+		// console.log(receivedNewExpense);
 		setExpenses((prevExpense) => {
 			return [receivedNewExpense, ...prevExpense];
 		});

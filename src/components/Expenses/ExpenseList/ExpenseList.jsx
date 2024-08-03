@@ -1,6 +1,6 @@
 import React from "react";
 import "./ExpenseList.css";
-import ExpenseItem from "./ExpenseItem";
+import ExpenseItem from "../ExpenseItem/ExpenseItem";
 
 function ExpenseList(props) {
 	//Conditional Return Statement Rendering

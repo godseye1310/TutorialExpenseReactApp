@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+// import { useState } from "react";
 import "./ExpenseItem.css";
-import ExpenseDate from "./ExpenseDate";
-import Card from "../Wrapper/Card";
+import ExpenseDate from "../ExpenseDate/ExpenseDate";
+import Card from "../../Wrapper/Card";
 
 function ExpenseItem(props) {
 	// const expenseDate = new Date(2023, 7, 15).toISOString();
