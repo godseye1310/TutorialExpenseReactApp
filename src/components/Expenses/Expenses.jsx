@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ExpensesFilter from "./ExpensesFilter/ExpensesFilter";
 import ExpenseList from "./ExpenseList/ExpenseList";
 import "./Expenses.css";
-import Card from "../Wrapper/Card";
+import Card from "../UI/Card";
 import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
