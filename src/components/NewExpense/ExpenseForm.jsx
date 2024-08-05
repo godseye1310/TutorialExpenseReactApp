@@ -3,9 +3,6 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
 	//Managing Multiple States//
-	const [enteredTitle, setEnteredTitle] = useState("");
-	const [enteredAmount, setEnteredAmount] = useState("");
-	const [enteredDate, setEnteredDate] = useState("");
 
 	//Multiple to One State format//
 	// const initialData = {
@@ -15,23 +12,29 @@ const ExpenseForm = (props) => {
 	// };
 	// const [userInput, setUserInput] = useState(initialData);
 
+	// const titleChangeHandler = (event) => {
+	// 	//Multiple to One State - Syntax to Update State//
+	// 	setUserInput((prevState) => {
+	// 		return { ...prevState, enteredTitle: event.target.value };
+	// 	});
+	// };
+	// const amountChangeHandler = (event) => {
+	// 	//Multiple to One State - Syntax to Update State//
+	// 	setUserInput((prevState) => {
+	// 		return { ...prevState, enteredAmount: event.target.value };
+	// 	});
+	// };
+
+	const [enteredTitle, setEnteredTitle] = useState("");
+	const [enteredAmount, setEnteredAmount] = useState("");
+	const [enteredDate, setEnteredDate] = useState("");
+
 	const titleChangeHandler = (event) => {
 		setEnteredTitle(event.target.value);
-
-		//Multiple to One State - Syntax to Update State//
-		// setUserInput((prevState) => {
-		// 	return { ...prevState, enteredTitle: event.target.value };
-		// });
 	};
-
 	const amountChangeHandler = (event) => {
 		setEnteredAmount(event.target.value);
-		//Multiple to One State - Syntax to Update State//
-		// setUserInput((prevState) => {
-		// 	return { ...prevState, enteredAmount: event.target.value };
-		// });
 	};
-
 	const dateChangeHandler = (event) => {
 		setEnteredDate(event.target.value);
 	};
